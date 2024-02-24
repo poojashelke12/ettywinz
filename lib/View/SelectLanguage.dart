@@ -1,6 +1,7 @@
 import 'package:ettywinz/Authentication/LoginOrRegister.dart';
 import 'package:ettywinz/Common/MyAppBar.dart';
 import 'package:ettywinz/config/config.dart';
+import 'package:ettywinz/helper/_comFuncHelper.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -20,7 +21,7 @@ class _SelectLanguageState extends State<SelectLanguage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MyAppBar(),
+      appBar: MyAppBar(title: '',),
       body: Container(
         padding: EdgeInsets.all(30),
         child: Center(
@@ -146,6 +147,8 @@ class _SelectLanguageState extends State<SelectLanguage> {
                     // padding: EdgeInsets.only(right: 5, bottom: 10,left: 5),
                     onPressed: () async {
                       if (isEngSelected != "") {
+                        // storeToStorageBoolean('isNotTime', true);
+                        storeToStorageBoolean('isLangSelect', true);
                         Navigator.push(
                             context,
                             MaterialPageRoute(

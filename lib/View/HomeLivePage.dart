@@ -12,7 +12,9 @@ class _HomeLivePageState extends State<HomeLivePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MyAppBar(),
+      appBar: MyAppBar(
+        title: '',
+      ),
     );
   }
 }

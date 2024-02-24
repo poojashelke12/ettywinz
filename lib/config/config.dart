@@ -87,6 +87,15 @@ extension CustomStyles on TextTheme {
     );
   }
 
+  TextStyle get mediumButtonTextblack {
+    return TextStyle(
+      fontWeight: FontWeight.w400,
+      color: Colors.black,
+      fontSize: 15.sp,
+      fontFamily: 'Bahnschrift',
+    );
+  }
+
   TextStyle get choosetypetext {
     return TextStyle(
       fontWeight: FontWeight.w400,
@@ -150,10 +159,19 @@ extension CustomStyles on TextTheme {
     );
   }
 
+  TextStyle get headingText4 {
+    return TextStyle(
+      fontWeight: FontWeight.w400,
+      color: Color.fromARGB(255, 48, 47, 47),
+      fontSize: 15.sp,
+      fontFamily: 'Bahnschrift',
+    );
+  }
+
   TextStyle get titleheadingText {
     return TextStyle(
       fontWeight: FontWeight.w500,
-      color: Colors.black,
+      color: Color.fromARGB(255, 42, 41, 41),
       fontSize: 20.sp,
       fontFamily: 'Bahnschrift',
     );

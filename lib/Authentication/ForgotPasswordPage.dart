@@ -1,28 +1,25 @@
-import 'package:ettywinz/Authentication/ForgotPasswordPage.dart';
+import 'package:ettywinz/Authentication/LoginOrRegister.dart';
 import 'package:ettywinz/Common/MyAppBar.dart';
-import 'package:ettywinz/View/HomeLivePage.dart';
 import 'package:ettywinz/config/config.dart';
 import 'package:flutter/material.dart';
 
-class LoginPage extends StatefulWidget {
-  LoginPage({Key? key}) : super(key: key);
+class ForgotPasswordPage extends StatefulWidget {
+  ForgotPasswordPage({Key? key}) : super(key: key);
 
   @override
-  _LoginPageState createState() => _LoginPageState();
+  _ForgotPasswordPageState createState() => _ForgotPasswordPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
   final _formKey = GlobalKey<FormState>();
-  final nameController = TextEditingController();
   final phoneController = TextEditingController();
-  final passwordController = TextEditingController();
   bool _isObscure = true;
   @override
   Widget build(BuildContext context) {
     return Form(
       key: _formKey,
       child: Scaffold(
-        appBar: MyAppBar(title: 'Welcome to EttyWinz'),
+        appBar: MyAppBar(title: 'Forgot password'),
         body: SingleChildScrollView(
           child: Container(
               padding: EdgeInsets.only(right: 15, left: 15),
@@ -31,22 +28,25 @@ class _LoginPageState extends State<LoginPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(
-                    child: Text('Already registered?',
-                        style: Theme.of(context).textTheme.titleLarge),
+                    child: Text(
+                        'If you have forgotten your password, please enter your mobile number you use to login below and click Request New Password.',
+                        style: Theme.of(context).textTheme.headingText4),
                   ),
                   SizedBox(
                     height: 26,
                   ),
                   SizedBox(
-                    child: Text('Login to your Ettywinz account!',
-                        style: Theme.of(context).textTheme.titleheadingText),
+                    child: Text(
+                        'You will then receive an OTP, enter that OTP on the next screen to change your password.',
+                        style: Theme.of(context).textTheme.headingText4),
                   ),
                   SizedBox(
-                    height: 70,
+                    height: 40,
                   ),
                   Container(
                     padding: EdgeInsets.only(right: 10, left: 10),
                     child: TextFormField(
+                      obscureText: _isObscure,
                       controller: phoneController,
                       validator: (value) {
                         if (value!.isEmpty) {
@@ -57,36 +57,14 @@ class _LoginPageState extends State<LoginPage> {
                       },
                       keyboardType: TextInputType.number,
                       decoration: InputDecoration(
-                          border: OutlineInputBorder(),
-                          labelText: 'Mobile Number',
-                          labelStyle: Theme.of(context).textTheme.titleMedium),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 22,
-                  ),
-                  Container(
-                    padding: EdgeInsets.only(right: 10, left: 10),
-                    child: TextFormField(
-                      obscureText: _isObscure,
-                      controller: passwordController,
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return 'Enter your password';
-                        } else {
-                          return null;
-                        }
-                      },
-                      keyboardType: TextInputType.text,
-                      decoration: InputDecoration(
                         border: OutlineInputBorder(),
-                        labelText: 'Password',
+                        labelText: 'Enter Mobile Number',
                         labelStyle: Theme.of(context).textTheme.titleMedium,
                         suffixIcon: IconButton(
                           icon: Icon(
                             _isObscure
-                                ? Icons.visibility_off
-                                : Icons.visibility,
+                                ? Icons.visibility
+                                : Icons.visibility_off,
                             color: Color(0xffB4B4B4),
                           ),
                           onPressed: () {
@@ -99,29 +77,29 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                   SizedBox(
-                    height: 30,
+                    height: 22,
                   ),
                   Container(
                     child: Align(
-                      alignment: Alignment.bottomRight,
+                      alignment: Alignment.center,
                       child: TextButton(
                           onPressed: () async {
                             if (_formKey.currentState!.validate()) {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => HomeLivePage()));
+                                      builder: (context) => LoginOrRegister()));
                             }
                           },
                           child: Container(
                             alignment: Alignment.center,
                             width:
                                 MediaQuery.of(context).copyWith().size.width /
-                                    2.5,
+                                    1.2,
                             height:
                                 MediaQuery.of(context).copyWith().size.height /
-                                    19,
-                            child: Text('Login',
+                                    20,
+                            child: Text('Request New Pasword',
                                 style: Theme.of(context)
                                     .textTheme
                                     .mediumButtonText),
@@ -129,32 +107,6 @@ class _LoginPageState extends State<LoginPage> {
                                 borderRadius: BorderRadius.circular(25),
                                 color: themeColorDark),
                           )),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 30,
-                  ),
-                  Container(
-                    padding: EdgeInsets.only(right: 12),
-                    alignment: Alignment.bottomRight,
-                    margin: EdgeInsets.only(bottom: 20),
-                    child: InkWell(
-                      child: Text(
-                        "Forgot Password?",
-                        style: TextStyle(
-                          color: themeColorDark,
-                          fontSize: 18,
-                          //decoration: TextDecoration.underline
-                        ),
-                      ),
-                      onTap: () => {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => ForgotPasswordPage()))
-                        // launch(
-                        //     'https://app.kafecloud.com/#/Auth/Forgot-Password')
-                      },
                     ),
                   ),
                 ],

@@ -129,6 +129,7 @@ class SplashScreenState extends State<SplashScreen> {
 
   void checkExist() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
+    // prefs.clear();
     isNotTime = prefs.containsKey('isNotTime');
     isLangSelected = prefs.containsKey('isLangSelect');
     var isLogedIn = prefs.containsKey('token');

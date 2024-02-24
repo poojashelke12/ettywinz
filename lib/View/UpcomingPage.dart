@@ -12,7 +12,9 @@ class _UpcomingPageState extends State<UpcomingPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MyAppBar(),
+      appBar: MyAppBar(
+        title: '',
+      ),
     );
   }
 }
