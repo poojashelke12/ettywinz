@@ -7,6 +7,7 @@ const themeColorlight = Color(0xFF484848);
 //const themeColorDark = Color(0xFF2133A9);
 const themeColorDark = Color.fromARGB(255, 14, 85, 167);
 const themeColorText = Color(0xFF484848);
+const themeColorlightgray = Color.fromARGB(255, 226, 211, 211);
 
 extension CustomStyles on TextTheme {
   TextStyle get detailsLabel {

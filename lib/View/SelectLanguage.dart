@@ -2,11 +2,8 @@ import 'package:ettywinz/Authentication/LoginOrRegister.dart';
 import 'package:ettywinz/Common/MyAppBar.dart';
 import 'package:ettywinz/config/config.dart';
 import 'package:ettywinz/helper/_comFuncHelper.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:toast/toast.dart';
 
 class SelectLanguage extends StatefulWidget {
   SelectLanguage({Key? key}) : super(key: key);
@@ -21,7 +18,7 @@ class _SelectLanguageState extends State<SelectLanguage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MyAppBar(title: '',),
+      appBar: MyAppBar(title: 'Welcome to EttyWinz'),
       body: Container(
         padding: EdgeInsets.all(30),
         child: Center(
@@ -34,6 +31,13 @@ class _SelectLanguageState extends State<SelectLanguage> {
                     style: Theme.of(context).textTheme.titleheadingText,
                     textAlign: TextAlign.center,
                   )),
+              SizedBox(
+                height: 15,
+              ),
+              SizedBox(
+                child: Text('You can change this later from the settings menu',
+                    style: Theme.of(context).textTheme.headingText4),
+              ),
               Container(
                 margin: EdgeInsets.only(
                   left: 8,

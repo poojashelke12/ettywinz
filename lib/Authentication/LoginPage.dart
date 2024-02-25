@@ -2,6 +2,7 @@ import 'package:ettywinz/Authentication/ForgotPasswordPage.dart';
 import 'package:ettywinz/Common/MyAppBar.dart';
 import 'package:ettywinz/View/HomeLivePage.dart';
 import 'package:ettywinz/config/config.dart';
+import 'package:ettywinz/helper/_comFuncHelper.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
@@ -107,10 +108,19 @@ class _LoginPageState extends State<LoginPage> {
                       child: TextButton(
                           onPressed: () async {
                             if (_formKey.currentState!.validate()) {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => HomeLivePage()));
+                              if ((phoneController.text == "1111111111") &&
+                                  (passwordController.text == "admin123")) {
+                                storeToStorageString(
+                                    'phonenumber', "1111111111");
+                                storeToStorageString('password', "admin123");
+                                storeToStorageString('token', "valid");
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => HomeLivePage()));
+                              } else {
+                                showReToast("Invalid Credentials");
+                              }
                             }
                           },
                           child: Container(
